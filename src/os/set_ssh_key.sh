@@ -1,10 +1,5 @@
 #!/bin/bash
 
-cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "utils.sh"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 generate_ssh_keys() {
 
     ask "Please provide an email address: " && printf "\n"
@@ -39,7 +34,15 @@ main() {
 
     print_in_blue "\n • Set up SSH keys\n\n"
 
-    set_ssh_key
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    local pub=$HOME/.ssh/id_rsa.pub
+
+    if ! [[ -f $pub ]]; then
+        set_ssh_key
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     print_result $? "Set up SSH keys"
 

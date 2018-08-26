@@ -1,19 +1,31 @@
 #!/bin/bash
 
-declare -r GITHUB_REPOSITORY="srod/dotfiles"
+cat <<EOF
 
-declare -r DOTFILES_ORIGIN="git@github.com:$GITHUB_REPOSITORY.git"
-declare -r DOTFILES_TARBALL_URL="https://github.com/$GITHUB_REPOSITORY/tarball/master"
-declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/src/utils.sh"
+ Arch Linux Installation Script
+
+
+EOF
+
+declare -r GITHUB_REPOSITORY="srod/dotfiles-arch"
+
+declare -r DOTFILES_ORIGIN="https://github.com/$GITHUB_REPOSITORY.git"
+declare -r DOTFILES_UTILS_URL="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/src/os/utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-declare dotfilesDirectory="$HOME/.dotfiles"
-declare skipQuestions=false
+declare DOTFILES="$HOME/.dotfiles"
 
 # ----------------------------------------------------------------------
 # | Helper Functions                                                   |
 # ----------------------------------------------------------------------
+
+check_internet_connection() {
+    if [ ping -q -w1 -c1 google.com &>/dev/null ]; then
+        printf "Please check your internet connection";
+        exit 0
+    fi
+}
 
 download() {
 
@@ -49,35 +61,25 @@ download_dotfiles() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    print_in_purple "\n • Download and extract archive\n\n"
+    print_in_blue "\n • Clone GitHub repository\n\n"
 
-    tmpFile="$(mktemp /tmp/XXXXX)"
+    if [ ! -d "$DOTFILES" ]; then
+        execute \
+            "git clone --quiet --recurse-submodules -j8 $DOTFILES_ORIGIN $DOTFILES" "Cloning in '$DOTFILES'"
+    else
+        ask_for_confirmation "'$DOTFILES' already exists, do you want to delete it?"
+        if answer_is_yes; then
+            rm -Rf $DOTFILES
+            execute \
+                "git clone --quiet --recurse-submodules -j8 $DOTFILES_ORIGIN $DOTFILES" "Cloning in '$DOTFILES'"
+        fi
+    fi
 
-    download "$DOTFILES_TARBALL_URL" "$tmpFile"
-    print_result $? "Download archive" "true"
-    printf "\n"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    rm -rf "$dotfilesDirectory" &> /dev/null
-    mkdir -p "$dotfilesDirectory"
-    print_result $? "Create '$dotfilesDirectory'" "true"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    # Extract archive in the `dotfiles` directory.
-
-    extract "$tmpFile" "$dotfilesDirectory"
-    print_result $? "Extract archive" "true"
+    print_result $? "Clone success" "true"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    rm -rf "$tmpFile"
-    print_result $? "Remove archive"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    cd "$dotfilesDirectory/src" \
+    cd "$DOTFILES/src/os" \
         || return 1
 
 }
@@ -97,17 +99,15 @@ download_utils() {
 
 }
 
-extract() {
+update_system() {
 
-    local archive="$1"
-    local outputDir="$2"
+    print_in_blue "\n • Update system\n\n"
 
-    if command -v "tar" &> /dev/null; then
-        tar -zxf "$archive" --strip-components 1 -C "$outputDir"
-        return $?
+    ask_for_confirmation "Your system must be updated first, do you want to?"
+    if answer_is_yes; then
+        execute \
+            "sudo pacman -Syu" "Checking updates..."
     fi
-
-    return 1
 
 }
 
@@ -125,10 +125,14 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    check_internet_connection
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     # Load utils
 
-    if [ -x "src/utils.sh" ]; then
-        . "src/utils.sh" || exit 1
+    if [ -a "./src/os/utils.sh" ]; then
+        . "./src/os/utils.sh" || exit 1
     else
         download_utils || exit 1
     fi
@@ -139,37 +143,32 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Check if this script was run directly (./<path>/setup.sh),
-    # and if not, it most likely means that the dotfiles were not
-    # yet set up, and they will need to be downloaded.
-
-    printf "%s" "${BASH_SOURCE[0]}" | grep "setup.sh" &> /dev/null \
-        || download_dotfiles
+    update_system
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    #./create_symbolic_links.sh "$@"
+    download_dotfiles
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    ./create_local_config_files.sh
+    source ./create_symbolic_links.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    ./install/main.sh
+    source ./create_local_config_files.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    #./preferences/main.sh
+    source ./install/main.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    ./set_ssh_key.sh
+    source ./set_ssh_key.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    ./restart.sh
+    source ./restart.sh
 
 }
 
-main "$@"
+main

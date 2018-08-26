@@ -1,0 +1,35 @@
+DOTFILES=$HOME/.dotfiles
+DOTFILES_SHELL=$DOTFILES/src/shell
+ZSH=$DOTFILES_SHELL/oh-my-zsh
+ZSH_THEME="spaceship"
+ZSH_CUSTOM=$DOTFILES_SHELL/zsh
+
+# Setup Theme
+SPACESHIP_CHAR_SYMBOL="\uf0e7"
+SPACESHIP_CHAR_SUFFIX=" "
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="true"
+SPACESHIP_PACKAGE_SHOW="false"
+SPACESHIP_GIT_BRANCH_COLOR="blue"
+
+# Source custom functions
+source $DOTFILES_SHELL/zsh/functions/*.zsh
+
+# Plugins list
+plugins=(zsh-completions zsh-autosuggestions zsh-better-npm-completion zsh-syntax-highlighting zsh-nvm history-substring-search jsontools sudo urltools web-search git node npm vscode yarn)
+
+# Setup plugin `history-substring-search`
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# Source Oh My Zsh
+source $ZSH/oh-my-zsh.sh
+
+# OPAM configuration
+#. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# rbenv
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+#export SDKMAN_DIR="$HOME/.sdkman"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

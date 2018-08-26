@@ -1,17 +1,16 @@
 #!/bin/bash
 
-cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "../utils.sh"
-
-declare -r RUBY_VERSION="2.5.1"
+declare -r RUBY_VERSION="2.5.5"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_ruby() {
 
-    brew_install "Brew rbenv" "rbenv"
+    yay_install "Rbenv" "rbenv"
+    yay_install "Ruby-build" "ruby-build"
     execute "rbenv install '$RUBY_VERSION'" "Install"
     execute "rbenv global '$RUBY_VERSION'" "Set global '$RUBY_VERSION'"
+    execute ". $LOCAL_SHELL_CONFIG_FILE" "Load env"
     execute "gem update --system" "Update system"
     execute "gem update" "Update"
 

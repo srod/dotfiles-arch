@@ -1,0 +1,32 @@
+[submodule "src/vim/vim/bundle/vim-pathogen"]
+	path = src/vim/vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+    ignore = dirty
+[submodule "src/shell/oh-my-zsh"]
+	path = src/shell/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+    ignore = dirty
+[submodule "src/shell/zsh/plugins/zsh-autosuggestions"]
+	path = src/shell/zsh/plugins/zsh-autosuggestions
+	url = git://github.com/zsh-users/zsh-autosuggestions
+    ignore = dirty
+[submodule "src/shell/zsh/plugins/zsh-better-npm-completion"]
+	path = src/shell/zsh/plugins/zsh-better-npm-completion
+	url = https://github.com/lukechilds/zsh-better-npm-completion
+    ignore = dirty
+[submodule "src/shell/zsh/plugins/zsh-nvm"]
+	path = src/shell/zsh/plugins/zsh-nvm
+	url = https://github.com/lukechilds/zsh-nvm
+    ignore = dirty
+[submodule "src/shell/zsh/plugins/zsh-syntax-highlighting"]
+	path = src/shell/zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+    ignore = dirty
+[submodule "src/shell/zsh/themes/spaceship-prompt"]
+	path = src/shell/zsh/themes/spaceship-prompt
+	url = https://github.com/denysdovhan/spaceship-prompt.git
+    ignore = dirty
+[submodule "src/shell/zsh/plugins/zsh-completions"]
+	path = src/shell/zsh/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
+    ignore = dirty
