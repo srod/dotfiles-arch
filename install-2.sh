@@ -127,7 +127,7 @@ sudo pacman -S --noconfirm --needed --asdeps xfce4 xfce4-goodies lightdm lightdm
 
 sudo systemctl enable lightdm
 
-sudo pacman -S --noconfirm --needed --asdeps xarchiver network-manager-applet file-roller galculator
+sudo pacman -S --noconfirm --needed --asdeps xarchiver network-manager-applet file-roller galculator gnome-keyring
 
 yay -S --noconfirm --needed --asdeps mugshot xfdashboard
 
@@ -187,6 +187,28 @@ sudo pacman -S --noconfirm --needed --asdeps xdg-user-dirs xdg-user-dirs-gtk
 xdg-user-dirs-update
 
 xdg-user-dirs-gtk-update
+
+
+
+clear
+
+
+
+echo "################################################################################"
+
+echo "### Power Management ###"
+
+echo "################################################################################"
+
+
+
+sudo pacman -S --noconfirm --needed --asdeps tlp
+sudo pacman -S --noconfirm --needed --asdeps tlp-rdw
+
+sudo echo 'RUNTIME_PM_BLACKLIST="08:00.0 08:00.1"' >> /etc/default/tlp
+
+sudo systemctl enable tlp
+sudo systemctl enable tlp-sleep
 
 
 

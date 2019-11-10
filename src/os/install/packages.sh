@@ -156,6 +156,7 @@ execute \
 
 # Themes
 yay_install "Themes" "numix-gtk-theme numix-frost-themes numix-circle-icon-theme-git arc-gtk-theme materia-gtk-theme paper-icon-theme papirus-icon-theme"
+yay_install "Themes" "equilux-theme faba-icon-theme-git flat-remix-git"
 
 execute \
     "git clone https://github.com/vinceliuice/Mojave-gtk-theme.git && cd Mojave-gtk-theme && ./install.sh && cd .. && rm -rf Mojave-gtk-theme" \
