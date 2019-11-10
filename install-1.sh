@@ -307,6 +307,12 @@ sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=\/dev\/nvme0n1p6
 #mkdir -p /mnt/windows
 #mount /dev/nvme0n1p4 /mnt/windows
 
+cp -R themes/razer /boot/grub/themes
+
+echo 'GRUB_GFXMODE="1920x1080-32"' >> /etc/default/grub
+echo 'GRUB_GFXPAYLOAD_LINUX="1920x1080-32"' >> /etc/default/grub
+echo 'GRUB_THEME="/boot/grub/themes/razer/theme.txt"' >> /etc/default/grub
+
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
