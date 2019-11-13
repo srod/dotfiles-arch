@@ -62,7 +62,7 @@ yay_install "Keybase" "keybase-bin"
 # IDE
 print_in_blue "\n   Packages - IDE\n\n"
 yay_install "Sublime Text" "sublime-text-dev"
-package_install "Visual Studio Code" "code"
+yay_install "Visual Studio Code" "visual-studio-code-bin"
 
 # Terminal
 print_in_blue "\n   Packages - Terminal\n\n"
