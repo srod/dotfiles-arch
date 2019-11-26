@@ -76,15 +76,28 @@ clear
 
 echo "##########################################################################"
 
-echo "### Refresh repo keys ###"
+echo "### Refresh repo keys (Y/n) ? ###"
 
 echo "##########################################################################"
 
 
 
-echo "Refreshing software repo keys, this will take a while (recommended)"
+read case;
+
+case $case in
+
+Y)
+
+echo "Refreshing software repo keys, this will take a while"
 
 pacman-key --refresh-keys
+
+
+;;
+
+esac
+
+
 
 pacman -S --noconfirm --needed --asdeps git wget linux-headers
 
