@@ -77,7 +77,7 @@ execute \
     "Add rodolphe to plugdev"
 yay_install "Simple Note" "simplenote-electron-bin"
 package_install "libnotify" "libnotify"
-yay_install "One Drive" "onedrive-abraunegg"
+yay_install "Insync" "insync"
 package_install "Virtualbox" "virtualbox"
 package_install "Virtualbox Guest ISO" "virtualbox-guest-iso"
 execute \
