@@ -326,11 +326,11 @@ clear
 
 
 
-echo "################################################################################"
+#echo "################################################################################"
 
-echo "### Installing Grub Theme : Vimix ###"
+#echo "### Installing Grub Theme : Vimix ###"
 
-echo "################################################################################"
+#echo "################################################################################"
 
 
 
@@ -340,14 +340,14 @@ echo "##########################################################################
 #echo 'GRUB_THEME="/boot/grub/themes/razer/theme.txt"' >> /etc/default/grub
 
 # https://github.com/vinceliuice/grub2-themes
-sh themes/grub2-themes/install.sh
-echo 'GRUB_GFXMODE="1920x1080-32"' >> /etc/default/grub
+#sh themes/grub2-themes/install.sh
+#echo 'GRUB_GFXMODE="1920x1080-32"' >> /etc/default/grub
 
-grub-mkconfig -o /boot/grub/grub.cfg
+#grub-mkconfig -o /boot/grub/grub.cfg
 
 
 
-clear
+#clear
 
 
 
