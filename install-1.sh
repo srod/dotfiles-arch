@@ -412,15 +412,15 @@ clear
 
 
 
-echo "################################################################################"
+#echo "################################################################################"
 
-echo "### Installing nVidia graphics card ###"
+#echo "### Installing nVidia graphics card ###"
 
-echo "################################################################################"
+#echo "################################################################################"
 
 
 
-pacman -S --noconfirm --needed --asdeps nvidia nvidia-settings nvidia-utils
+#pacman -S --noconfirm --needed --asdeps nvidia nvidia-settings nvidia-utils
 
 
 
