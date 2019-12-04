@@ -99,7 +99,7 @@ esac
 
 
 
-pacman -S --noconfirm --needed --asdeps git wget linux-headers
+pacman -S --noconfirm --needed --asdeps git wget
 
 clear
 
@@ -308,7 +308,7 @@ sleep 2
 
 
 sed -i 's/MODULES=()/MODULES=(ext4)/g' /etc/mkinitcpio.conf
-sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard/HOOKS=(base udev autodetect modconf block filesystems keyboard keymap encrypt lvm2/g' /etc/mkinitcpio.conf
+sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard/HOOKS=(base udev autodetect modconf block keyboard keymap encrypt lvm2 filesystems/g' /etc/mkinitcpio.conf
 
 mkinitcpio -p linux
 
