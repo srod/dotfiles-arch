@@ -20,19 +20,19 @@ clear
 
 
 
-echo "################################################################################"
+#echo "################################################################################"
 
-echo "### Activate connection ###"
+#echo "### Activate connection ###"
 
-echo "################################################################################"
-
-
-
-nmtui
+#echo "################################################################################"
 
 
 
-clear
+#nmtui
+
+
+
+#clear
 
 
 
@@ -111,7 +111,7 @@ sudo systemctl enable sddm
 
 sudo pacman -S --noconfirm --needed --asdeps packagekit-qt5 kdenetwork-filesharing kdeconnect
 
-yay -S --noconfirm --needed --asdeps plasma-thunderbolt-git
+#yay -S --noconfirm --needed --asdeps plasma-thunderbolt-git
 
 yay -S --noconfirm --needed --asdeps samba-mounter-git
 
@@ -194,21 +194,21 @@ clear
 
 
 
-#echo "################################################################################"
+echo "################################################################################"
 
-#echo "### Power Management ###"
+echo "### Power Management ###"
 
-#echo "################################################################################"
+echo "################################################################################"
 
 
 
-#sudo pacman -S --noconfirm --needed --asdeps tlp
-#sudo pacman -S --noconfirm --needed --asdeps tlp-rdw
+sudo pacman -S --noconfirm --needed --asdeps tlp
+sudo pacman -S --noconfirm --needed --asdeps tlp-rdw
 
-#sudo echo 'RUNTIME_PM_BLACKLIST="08:00.0 08:00.1"' >> /etc/default/tlp
+sudo echo 'RUNTIME_PM_BLACKLIST="08:00.0 08:00.1"' >> /etc/default/tlp
 
-#sudo systemctl enable tlp
-#sudo systemctl enable tlp-sleep
+sudo systemctl enable tlp
+sudo systemctl enable tlp-sleep
 
 
 
