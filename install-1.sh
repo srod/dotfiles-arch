@@ -469,6 +469,10 @@ sed -i "s/# %wheel ALL=(ALL)/%wheel ALL=(ALL)/g" /etc/sudoers
 
 
 
+clear
+
+
+
 echo "################################################################################"
 
 echo "### Swap ###"
@@ -484,6 +488,10 @@ sleep 2
 pacman -S --noconfirm --needed --asdeps systemd-swap
 sed -i "s/swapfc_enabled=0/swapfc_enabled=1/g" /etc/systemd/swap.conf
 systemctl enable systemd-swap
+
+
+
+clear
 
 
 
