@@ -320,6 +320,8 @@ sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=\/dev\/nvme0n1p6
 #mkdir -p /mnt/windows
 #mount /dev/nvme0n1p4 /mnt/windows
 
+grub-mkconfig -o /boot/grub/grub.cfg
+
 
 
 clear
