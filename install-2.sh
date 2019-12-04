@@ -205,7 +205,7 @@ echo "##########################################################################
 sudo pacman -S --noconfirm --needed --asdeps tlp
 sudo pacman -S --noconfirm --needed --asdeps tlp-rdw
 
-sudo echo 'RUNTIME_PM_BLACKLIST="08:00.0 08:00.1"' >> /etc/default/tlp
+#sudo echo 'RUNTIME_PM_BLACKLIST="08:00.0 08:00.1"' >> /etc/default/tlp
 
 sudo systemctl enable tlp
 sudo systemctl enable tlp-sleep
