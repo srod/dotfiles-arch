@@ -76,11 +76,17 @@ clear
 
 echo "##########################################################################"
 
-echo "### Refresh repo keys (Y/n) ? ###"
+echo "### Refresh repo keys ###"
 
 echo "##########################################################################"
 
 
+
+sleep 2
+
+
+echo ""
+echo "(Y/n) ?"
 
 read case;
 
@@ -101,6 +107,8 @@ esac
 
 pacman -S --noconfirm --needed --asdeps git wget
 
+sleep 2
+
 clear
 
 
@@ -113,9 +121,15 @@ echo "##########################################################################
 
 
 
+sleep 2
+
+
+
 sed -i 's/'#en_US.UTF-8'/'en_US.UTF-8'/g' /etc/locale.gen
 
 locale-gen
+
+sleep 2
 
 clear
 
@@ -129,8 +143,14 @@ echo "##########################################################################
 
 
 
+sleep 2
+
+
+
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=fr-latin9" > /etc/vconsole.conf
+
+sleep 2
 
 clear
 
@@ -144,9 +164,15 @@ echo "##########################################################################
 
 
 
+sleep 2
+
+
+
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 echo "FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org" >> /etc/systemd/timesyncd.conf
 systemctl enable systemd-timesyncd.service
+
+sleep 2
 
 clear
 
@@ -160,7 +186,13 @@ echo "##########################################################################
 
 
 
+sleep 2
+
+
+
 hwclock --systohc
+
+sleep 2
 
 clear
 
@@ -171,6 +203,10 @@ echo "##########################################################################
 echo "### Setting up hostname ###"
 
 echo "##########################################################################"
+
+
+
+sleep 2
 
 
 
@@ -188,6 +224,8 @@ echo "::1             localhost       ip6-localhost   ip6-loopback" >> /etc/host
 echo "ff02::1         ip6-allnodes" >> /etc/hosts
 echo "ff02::2         ip6-allrouters" >> /etc/hosts
 
+sleep 2
+
 clear
 
 
@@ -200,7 +238,13 @@ echo "##########################################################################
 
 
 
+sleep 2
+
+
+
 passwd
+
+sleep 2
 
 clear
 
@@ -219,6 +263,8 @@ sleep 2
 
 
 pacman -S --noconfirm --needed --asdeps pulseaudio pulseaudio-alsa pavucontrol alsa-utils alsa-plugins alsa-lib alsa-firmware gstreamer gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly volumeicon playerctl
+
+sleep 2
 
 clear
 
@@ -243,6 +289,8 @@ systemctl enable bluetooth.service
 systemctl start bluetooth.service
 
 sed -i 's/'#AutoEnable=false'/'AutoEnable=true'/g' /etc/bluetooth/main.conf
+
+sleep 2
 
 clear
 
@@ -272,7 +320,7 @@ pacman -S --noconfirm --needed --asdeps nss-mdns
 
 sed -i 's/dns/mdns dns wins/g' /etc/nsswitch.conf
 
-
+sleep 2
 
 clear
 
@@ -292,6 +340,8 @@ sleep 2
 
 pacman -S --noconfirm --needed --asdeps intel-ucode
 
+sleep 2
+
 clear
 
 
@@ -305,6 +355,7 @@ echo "##########################################################################
 
 
 sleep 2
+
 
 
 sed -i 's/MODULES=()/MODULES=(ext4)/g' /etc/mkinitcpio.conf
@@ -322,7 +373,7 @@ sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=\/dev\/nvme0n1p6
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
-
+sleep 2
 
 clear
 
@@ -333,6 +384,10 @@ clear
 #echo "### Installing Grub Theme : Vimix ###"
 
 #echo "################################################################################"
+
+
+
+#sleep 2
 
 
 
@@ -347,7 +402,7 @@ clear
 
 #grub-mkconfig -o /boot/grub/grub.cfg
 
-
+#sleep 2
 
 #clear
 
@@ -367,7 +422,7 @@ sleep 2
 
 pacman -S --noconfirm --needed --asdeps net-tools wireless_tools dialog iw wpa_supplicant
 
-
+sleep 2
 
 clear
 
@@ -388,7 +443,7 @@ sleep 2
 pacman -S --noconfirm --needed --asdeps networkmanager networkmanager-openvpn
 systemctl enable NetworkManager
 
-
+sleep 2
 
 clear
 
@@ -408,7 +463,7 @@ sleep 2
 
 systemctl enable fstrim.timer
 
-
+sleep 2
 
 clear
 
@@ -424,9 +479,9 @@ clear
 
 #pacman -S --noconfirm --needed --asdeps nvidia nvidia-settings nvidia-utils
 
+#sleep 2
 
-
-clear
+#clear
 
 
 
@@ -445,7 +500,7 @@ sleep 2
 useradd -m -g wheel -c 'Rodolphe Stoclin' rodolphe
 passwd rodolphe
 
-
+sleep 2
 
 clear
 
@@ -467,7 +522,7 @@ pacman -S --noconfirm --needed --asdeps sudo
 
 sed -i "s/# %wheel ALL=(ALL)/%wheel ALL=(ALL)/g" /etc/sudoers
 
-
+sleep 2
 
 clear
 
@@ -489,7 +544,7 @@ pacman -S --noconfirm --needed --asdeps systemd-swap
 sed -i "s/swapfc_enabled=0/swapfc_enabled=1/g" /etc/systemd/swap.conf
 systemctl enable systemd-swap
 
-
+sleep 2
 
 clear
 
