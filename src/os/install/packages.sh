@@ -3,7 +3,6 @@
 # System
 print_in_blue "\n   Packages - System\n\n"
 package_install "Bat" "bat"
-package_install "Git" "git"
 package_install "Ncdu" "ncdu"
 package_install "Ngrep" "ngrep"
 package_install "Nmap" "nmap"
@@ -33,7 +32,6 @@ execute \
 print_in_blue "\n   Packages - Network\n\n"
 package_install "OpenSSH" "openssh"
 package_install "Bind Tools" "bind-tools"
-package_install "Network Manager Openvpn" "networkmanager-openvpn"
 package_install "cifs-utils" "cifs-utils"
 execute \
     "sudo rm /etc/krb5.conf" \
@@ -88,8 +86,7 @@ package_install "Unrar" "unrar"
 package_install "PDF Arranger" "pdfarranger"
 yay_install "Moneydance" "moneydance"
 package_install "Youtube dl" "youtube-dl"
-#package_install "Xreader" "xreader"
-package_install "BalenaEtcher" "etcher-bin"
+yay_install "BalenaEtcher" "etcher-bin"
 
 # Videos
 print_in_blue "\n   Packages - Videos\n\n"
@@ -155,6 +152,13 @@ execute \
     "Enable printer service"
 
 # Themes
+echo "Install Theme ? (Y/n)"
+
+read case;
+case $case in
+
+Y)
+
 yay_install "Themes" "numix-gtk-theme numix-frost-themes numix-circle-icon-theme-git arc-gtk-theme materia-gtk-theme paper-icon-theme papirus-icon-theme"
 yay_install "Themes" "equilux-theme faba-icon-theme-git flat-remix-git"
 
@@ -162,10 +166,13 @@ execute \
     "git clone https://github.com/vinceliuice/Mojave-gtk-theme.git && cd Mojave-gtk-theme && ./install.sh && cd .. && rm -rf Mojave-gtk-theme" \
     "Install Mojave Theme"
 
+;;
+esac
+
 # OS Prober
 package_install "OS Prober" "os-prober"
 execute \
-    "sudo os-prober" \
+    "sudo os-prober && sudo grub-mkconfig -o /boot/grub/grub.cfg" \
     "Enable windows partition to grub"
 
 # YARN
