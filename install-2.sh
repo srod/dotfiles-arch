@@ -58,7 +58,7 @@ cd ..
 
 rm yay -R -f
 
-
+sleep 2
 
 clear
 
@@ -76,12 +76,18 @@ sleep 2
 
 
 
-sudo pacman -S --noconfirm --needed --asdeps xf86-video-intel mesa xorg-server bumblebee bbswitch-dkms nvidia nvidia-settings primus
+sudo pacman -S --noconfirm --needed --asdeps xf86-video-intel
 
-sudo gpasswd -a rodolphe bumblebee
-sudo gpasswd -a rodolphe video
+#sudo pacman -S --noconfirm --needed --asdeps xf86-video-intel mesa xorg-server bumblebee bbswitch-dkms nvidia nvidia-settings primus
 
-sudo systemctl enable bumblebeed.service
+#sudo gpasswd -a rodolphe bumblebee
+#sudo gpasswd -a rodolphe video
+
+#sudo systemctl enable bumblebeed.service
+
+sleep 2
+
+clear
 
 
 
@@ -91,7 +97,9 @@ echo "What is your preferred desktop environment"
 
 echo "1) KDE Plasma"
 
-echo "2) XFCE4"
+echo "2) KDE Plasma Minimal"
+
+echo "3) XFCE4"
 
 echo "################################################################################"
 
@@ -109,7 +117,7 @@ sudo pacman -S --noconfirm --needed --asdeps plasma-meta kde-applications-meta s
 
 sudo systemctl enable sddm
 
-sudo pacman -S --noconfirm --needed --asdeps packagekit-qt5 kdenetwork-filesharing kdeconnect
+sudo pacman -S --noconfirm --needed --asdeps packagekit-qt5 kdenetwork-filesharing
 
 #yay -S --noconfirm --needed --asdeps plasma-thunderbolt-git
 
@@ -119,6 +127,20 @@ yay -S --noconfirm --needed --asdeps samba-mounter-git
 ;;
 
 2)
+
+
+echo "You selected KDE Plasma Minimal"
+
+sudo pacman -S --noconfirm --needed --asdeps plasma-desktop sddm
+
+sudo systemctl enable sddm
+
+sudo pacman -S --noconfirm --needed --asdeps packagekit-qt5 kdenetwork-filesharing
+
+
+;;
+
+3)
 
 
 echo "You selected XFCE4"
@@ -137,6 +159,8 @@ yay -S --noconfirm --needed --asdeps mugshot xfdashboard
 esac
 
 
+sleep 2
+
 clear
 
 
@@ -149,10 +173,14 @@ echo "##########################################################################
 
 
 
+sleep 2
+
+
+
 sudo localectl set-keymap fr
 sudo localectl set-x11-keymap fr
 
-
+sleep 2
 
 clear
 
@@ -166,9 +194,13 @@ echo "##########################################################################
 
 
 
+sleep 2
+
+
+
 sudo pacman -S --noconfirm --needed --asdeps gvfs-afc gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
 
-
+sleep 2
 
 clear
 
@@ -182,13 +214,17 @@ echo "##########################################################################
 
 
 
+sleep 2
+
+
+
 sudo pacman -S --noconfirm --needed --asdeps xdg-user-dirs xdg-user-dirs-gtk
 
 xdg-user-dirs-update
 
 xdg-user-dirs-gtk-update
 
-
+sleep 2
 
 clear
 
@@ -202,6 +238,10 @@ echo "##########################################################################
 
 
 
+sleep 2
+
+
+
 sudo pacman -S --noconfirm --needed --asdeps tlp
 sudo pacman -S --noconfirm --needed --asdeps tlp-rdw
 
@@ -210,7 +250,7 @@ sudo pacman -S --noconfirm --needed --asdeps tlp-rdw
 sudo systemctl enable tlp
 sudo systemctl enable tlp-sleep
 
-
+sleep 2
 
 clear
 
