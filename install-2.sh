@@ -76,7 +76,7 @@ sleep 2
 
 
 
-sudo pacman -S --noconfirm --needed --asdeps xf86-video-intel
+sudo pacman -S --noconfirm --needed --asdeps xf86-video-intel xorg-server
 
 #sudo pacman -S --noconfirm --needed --asdeps xf86-video-intel mesa xorg-server bumblebee bbswitch-dkms nvidia nvidia-settings primus
 
@@ -113,7 +113,7 @@ case $case in
 
 echo "You selected KDE Plasma"
 
-sudo pacman -S --noconfirm --needed --asdeps plasma-meta kde-applications-meta sddm
+sudo pacman -S --noconfirm --needed --asdeps plasma-meta sddm
 
 sudo systemctl enable sddm
 
