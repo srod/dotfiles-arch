@@ -135,7 +135,12 @@ sudo pacman -S --noconfirm --needed --asdeps plasma-desktop sddm
 
 sudo systemctl enable sddm
 
-sudo pacman -S --noconfirm --needed --asdeps packagekit-qt5 kdenetwork-filesharing
+sudo pacman -S --noconfirm --needed --asdeps bluedevil kscreen plasma-browser-integration plasma-nm plasma-pa plasma-thunderbolt
+
+sudo pacman -S --noconfirm --needed --asdeps powerdevil sddm-kcm breeze-grub dolphin kwrite kfind gwenview okular spectacle svgpart
+
+sudo pacman -S --noconfirm --needed --asdeps audiocd-kio dragon kmix akonadi-calendar-tools ark kcalc kgpg print-manager sweeper ksshaskpass
+
 
 
 ;;
