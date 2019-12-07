@@ -135,7 +135,7 @@ sudo pacman -S --noconfirm --needed --asdeps plasma-desktop sddm
 
 sudo systemctl enable sddm
 
-sudo pacman -S --noconfirm --needed --asdeps bluedevil kscreen plasma-browser-integration plasma-nm plasma-pa plasma-thunderbolt
+sudo pacman -S --noconfirm --needed --asdeps kwallet-pam xf86-input-libinput xf86-input-synaptics bluedevil kscreen plasma-browser-integration plasma-nm plasma-pa plasma-thunderbolt
 
 sudo pacman -S --noconfirm --needed --asdeps powerdevil sddm-kcm breeze-grub dolphin kwrite kfind gwenview okular spectacle svgpart
 
