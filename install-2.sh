@@ -101,6 +101,8 @@ echo "2) KDE Plasma Minimal"
 
 echo "3) XFCE4"
 
+echo "4) Gnome"
+
 echo "################################################################################"
 
 
@@ -157,6 +159,19 @@ sudo systemctl enable lightdm
 sudo pacman -S --noconfirm --needed --asdeps xarchiver network-manager-applet file-roller galculator gnome-keyring
 
 yay -S --noconfirm --needed --asdeps mugshot xfdashboard
+
+
+;;
+
+4)
+
+sudo pacman -S --noconfirm --needed --asdeps gdm gnome-control-center gnome-terminal gnome-keyring gnome-tweak-tool
+
+sudo pacman -S --noconfirm --needed --asdeps gedit eog naulilus gnome-photos gnome-contacts evince gnome-calculator gnome-power-manager
+
+sudo pacman -S --noconfirm --needed --asdeps gnome-screenshot gnome-search-tool gnome-bluetooth
+
+sudo systemctl enable gdm.service
 
 
 ;;
