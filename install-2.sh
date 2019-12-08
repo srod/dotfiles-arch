@@ -169,7 +169,9 @@ sudo pacman -S --noconfirm --needed --asdeps gdm gnome-control-center gnome-term
 
 sudo pacman -S --noconfirm --needed --asdeps gedit eog nautilus gnome-photos gnome-contacts evince gnome-calculator gnome-power-manager
 
-sudo pacman -S --noconfirm --needed --asdeps gnome-screenshot gnome-search-tool gnome-bluetooth
+sudo pacman -S --noconfirm --needed --asdeps gnome-screenshot gnome-search-tool gnome-bluetooth gnome-menus
+
+sudo pacman -S --noconfirm --needed --asdeps nvidia
 
 sudo systemctl enable gdm.service
 
