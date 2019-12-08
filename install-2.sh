@@ -167,7 +167,7 @@ yay -S --noconfirm --needed --asdeps mugshot xfdashboard
 
 sudo pacman -S --noconfirm --needed --asdeps gdm gnome-control-center gnome-terminal gnome-keyring gnome-tweak-tool
 
-sudo pacman -S --noconfirm --needed --asdeps gedit eog naulilus gnome-photos gnome-contacts evince gnome-calculator gnome-power-manager
+sudo pacman -S --noconfirm --needed --asdeps gedit eog nautilus gnome-photos gnome-contacts evince gnome-calculator gnome-power-manager
 
 sudo pacman -S --noconfirm --needed --asdeps gnome-screenshot gnome-search-tool gnome-bluetooth
 
