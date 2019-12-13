@@ -76,12 +76,14 @@ sleep 2
 
 
 
-sudo pacman -S --noconfirm --needed --asdeps xf86-video-intel mesa xorg-server bumblebee bbswitch-dkms nvidia nvidia-settings primus
+sudo pacman -S --noconfirm --needed --asdeps xf86-video-intel xorg-server
 
-sudo gpasswd -a rodolphe bumblebee
-sudo gpasswd -a rodolphe video
+#sudo pacman -S --noconfirm --needed --asdeps xf86-video-intel mesa xorg-server bumblebee bbswitch-dkms nvidia nvidia-settings primus
 
-sudo systemctl enable bumblebeed.service
+#sudo gpasswd -a rodolphe bumblebee
+#sudo gpasswd -a rodolphe video
+
+#sudo systemctl enable bumblebeed.service
 
 sleep 2
 
@@ -162,9 +164,6 @@ yay -S --noconfirm --needed --asdeps mugshot xfdashboard
 ;;
 
 4)
-
-
-echo "You selected Gnome"
 
 sudo pacman -S --noconfirm --needed --asdeps gdm gnome-control-center gnome-terminal gnome-keyring gnome-tweak-tool
 
