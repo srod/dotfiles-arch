@@ -117,6 +117,11 @@ sudo pacman -S --noconfirm --needed --asdeps plasma-meta sddm
 
 sudo systemctl enable sddm
 
+sudo sddm --example-config > /etc/sddm.conf
+sudo sed -i 's/Current=/Current=breeze/' /etc/sddm.conf
+sudo sed -i 's/CursorTheme=/CursorTheme=breeze_cursors/' /etc/sddm.conf
+sudo sed -i 's/Numlock=none/Numlock=on/' /etc/sddm.conf
+
 sudo pacman -S --noconfirm --needed --asdeps packagekit-qt5 kdenetwork-filesharing
 
 #yay -S --noconfirm --needed --asdeps plasma-thunderbolt-git
@@ -135,9 +140,14 @@ sudo pacman -S --noconfirm --needed --asdeps plasma-desktop sddm
 
 sudo systemctl enable sddm
 
+sudo sddm --example-config > /etc/sddm.conf
+sudo sed -i 's/Current=/Current=breeze/' /etc/sddm.conf
+sudo sed -i 's/CursorTheme=/CursorTheme=breeze_cursors/' /etc/sddm.conf
+sudo sed -i 's/Numlock=none/Numlock=on/' /etc/sddm.conf
+
 sudo pacman -S --noconfirm --needed --asdeps kwallet-pam xf86-input-libinput xf86-input-synaptics bluedevil kscreen plasma-browser-integration plasma-nm plasma-pa plasma-thunderbolt
 
-sudo pacman -S --noconfirm --needed --asdeps powerdevil sddm-kcm breeze-grub dolphin kwrite kfind gwenview okular spectacle svgpart
+sudo pacman -S --noconfirm --needed --asdeps powerdevil sddm-kcm breeze-grub dolphin dolphin-plugins kwrite kfind gwenview okular spectacle svgpart
 
 sudo pacman -S --noconfirm --needed --asdeps audiocd-kio dragon kmix akonadi-calendar-tools ark kcalc kgpg print-manager sweeper ksshaskpass
 

@@ -312,13 +312,15 @@ sleep 2
 
 pacman -S --noconfirm --needed --asdeps gvfs-smb avahi
 
-systemctl enable avahi-daemon.service
+systemctl enable avahi-daemon.service --now
 
-systemctl start avahi-daemon.service
+systemctl enable avahi-dnsconfd.service --now
 
 pacman -S --noconfirm --needed --asdeps nss-mdns
 
 sed -i 's/dns/mdns dns wins/g' /etc/nsswitch.conf
+
+sed -i 's/resolve/mdns_minimal [NOTFOUND=return] resolve/g' /etc/nsswitch.conf
 
 sleep 2
 

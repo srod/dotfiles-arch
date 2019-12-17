@@ -19,6 +19,7 @@ yay_install "Exfat utils" "exfat-utils-nofuse"
 package_install "Xclip" "xclip"
 package_install "Neofetch" "neofetch"
 package_install "Htop" "htop"
+yay_install "Gotop" "gotop-bin"
 package_install "Ntfs-3g" "ntfs-3g"
 package_install "android-udev" "android-udev"
 
@@ -37,6 +38,22 @@ execute \
     "sudo rm /etc/krb5.conf" \
     "Optimize samba"
 package_install "Google Drive" "kio-gdrive"
+
+# Security
+package_install "Clamav" "clamav"
+execute \
+    "sed -i '/Example/d' /etc/clamav/freshclam.conf && sed -i '/Example/d' /etc/clamav/clamd.conf" \
+    "Set up Clamav config files"
+execute \
+    "sudo systemctl enable clamav-daemon.service" \
+    "Enable Clamav"
+execute \
+    "sudo systemctl enable clamav-freshclam.service" \
+    "Enable Freshclam"
+package_install "UFW" "ufw gufw"
+execute \
+    "sudo systemctl enable ufw.service" \
+    "Enable UFW"
 
 # Browsers
 print_in_blue "\n   Packages - Browsers\n\n"
@@ -89,10 +106,12 @@ execute \
 package_install "VMware Tools" "open-vm-tools"
 package_install "Virtualbox" "virtualbox"
 package_install "Virtualbox Guest ISO" "virtualbox-guest-iso"
+yay_install "Virtualbox Extensions" "virtualbox-ext-oracle"
 execute \
     "sudo gpasswd -a rodolphe vboxusers" \
     "Add rodolphe to vboxusers"
 package_install "Meld" "meld"
+package_install "Kdiff3" "kdiff3"
 package_install "Unrar" "unrar"
 package_install "PDF Arranger" "pdfarranger"
 yay_install "Moneydance" "moneydance"
@@ -111,26 +130,25 @@ yay_install "Hack Nerd" "nerd-fonts-hack"
 yay_install "TTF ms fonts" "ttf-ms-fonts"
 yay_install "TTF Monaco" "ttf-monaco"
 yay_install "TTF Vista Fonts" "ttf-vista-fonts"
-yay_install "TTF Ubuntu Font Family" "ttf-ubuntu-font-family"
-yay_install "TTF Roboto" "ttf-roboto"
-
+yay_install "TTF Google Fonts" "ttf-google-fonts-git"
 package_install "TTF Dejavu" "ttf-dejavu"
+yay_install "TTF Fira Code" "ttf-fira-code"
 package_install "TTF Liberation" "ttf-liberation"
 package_install "Noto Fonts" "noto-fonts"
-package_install "TTF Lato" "ttf-lato"
 package_install "Emoji" "noto-fonts-emoji"
 package_install "TTF Inconsolata" "ttf-inconsolata"
 package_install "Terminus Font" "terminus-font"
 package_install "Cantarell Fonts" "cantarell-fonts"
-package_install "Adobe Source Sans Pro Fonts" "adobe-source-sans-pro-fonts"
+package_install "TTF Bitstream Vera" "ttf-bitstream-vera"
+package_install "TTF Hack" "ttf-hack"
+yay_install "TTF Mac Fonts" "ttf-mac-fonts"
 
 # Office
 package_install "Libre Office" "libreoffice-fresh libreoffice-fresh-fr"
 yay_install "Microsoft Office Online" "ms-office-online"
 
 # Printers
-package_install "Printers" "cups cups-pdf ghostscript gsfonts libcups system-config-printer avahi simple-scan --noconfirm --needed"
-package_install "drivers" "foomatic-{db,db-ppds,db-gutenprint-ppds,db-nonfree,db-nonfree-ppds} gutenprint"
+package_install "Printers" "cups cups-pdf ghostscript gsfonts libcups system-config-printer simple-scan --noconfirm --needed"
 execute \
     "sudo gpasswd -a rodolphe lp" \
     "Add rodolphe to lp group"
@@ -139,27 +157,7 @@ execute \
 yay_install "Drivers Epson XP-700" "epson-inkjet-printer-201208w"
 
 execute \
-    "sudo systemctl enable avahi-daemon" \
-    "Enable printer service"
-
-execute \
-    "sudo systemctl start avahi-daemon" \
-    "Enable printer service"
-
-execute \
-    "sudo systemctl enable avahi-dnsconfd" \
-    "Enable printer service"
-
-execute \
-    "sudo systemctl start avahi-dnsconfd" \
-    "Enable printer service"
-
-execute \
-    "sudo systemctl enable org.cups.cupsd" \
-    "Enable printer service"
-
-execute \
-    "sudo systemctl start org.cups.cupsd" \
+    "sudo systemctl enable org.cups.cupsd --now" \
     "Enable printer service"
 
 # Themes
