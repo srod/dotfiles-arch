@@ -69,6 +69,7 @@ package_install "Firefox" "firefox"
 # Mail
 print_in_blue "\n   Packages - Mail\n\n"
 package_install "Thunderbird" "thunderbird"
+package_install "Mailspring" "mailspring gnome-keyring"
 
 # GPG
 print_in_blue "\n   Packages - GPG\n"

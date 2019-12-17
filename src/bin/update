@@ -84,7 +84,7 @@ updateMirrorlist ()
 
 
  printInfo "Optimizing mirrorlist for maximum download speed:\n"
- sudo reflector -l 50 --country France --verbose --sort rate --save /etc/pacman.d/mirrorlist
+ sudo reflector -l 50 --country France --country Switzerland --protocol https --verbose --sort rate --save /etc/pacman.d/mirrorlist
  echo ""
  printInfo "Refreshing package list:\n"
  sudo pacman -Syy --color=auto
