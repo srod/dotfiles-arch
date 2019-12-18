@@ -89,6 +89,13 @@ yay_install "Dropbox" "dropbox"
 yay_install "Pamac" "pamac-aur"
 yay_install "Razer" "python-notify2 polychromatic"
 execute \
+    "sudo gpasswd -a rodolphe plugdev" \
+    "Add rodolphe to plugdev"
+yay_install "Simple Note" "simplenote-electron-bin"
+package_install "libnotify" "libnotify"
+yay_install "Insync" "insync"
+yay_install "vmware-workstation"
+execute \
     "sudo systemctl enable vmware-networks.service" \
     "Add VMware Network"
 execute \
@@ -97,13 +104,6 @@ execute \
 execute \
     "sudo systemctl enable vmware-hostd.service" \
     "Add VMware Hostd"
-yay_install "Simple Note" "simplenote-electron-bin"
-package_install "libnotify" "libnotify"
-yay_install "Insync" "insync"
-yay_install "vmware-workstation"
-execute \
-    "sudo gpasswd -a rodolphe vboxusers" \
-    "Add rodolphe to vboxusers"
 package_install "VMware Tools" "open-vm-tools"
 package_install "Virtualbox" "virtualbox"
 package_install "Virtualbox Guest ISO" "virtualbox-guest-iso"
@@ -146,6 +146,7 @@ yay_install "TTF Mac Fonts" "ttf-mac-fonts"
 
 # Office
 package_install "Libre Office" "libreoffice-fresh libreoffice-fresh-fr"
+yay_install "Libre Office French Dictionary" "libreoffice-extension-grammalecte-fr"
 yay_install "Microsoft Office Online" "ms-office-online"
 
 # Printers
