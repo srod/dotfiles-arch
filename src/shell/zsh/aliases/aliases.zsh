@@ -5,7 +5,6 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 alias vi="/usr/bin/vim"
-#alias cat="bat"
 alias ncdu="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
@@ -22,18 +21,10 @@ alias grep="grep --color=auto"
 alias aliases="subl $DOTFILES/src/shell/zsh/aliases/aliases.zsh"
 
 # Update
-# alias pacmanup="sudo pacman -Syu"
-# alias gemup="gem update --system; gem update; gem cleanup"
-# alias npmup="npm -g update; npm install -g npm"
-# alias yayup="yay -Syu"
-# alias update="pacmanup; gemup; npmup; yayup"
-
-# Work
-alias work="cd ~/Insync/srodolphe@gmail.com/OneDrive/www"
-alias work.2clics="cd ~/Insync/srodolphe@gmail.com/OneDrive/www/www.2clics.net"
-alias work.minify="cd ~/Insync/srodolphe@gmail.com/OneDrive/www/minify.2clics.net"
-alias work.node-minify="cd ~/Insync/srodolphe@gmail.com/OneDrive/www/github/node-minify"
-alias work.node-version="cd ~/Insync/srodolphe@gmail.com/OneDrive/www/github/node-version"
+alias pacmanup="sudo pacman -Syu"
+alias npmup="npm -g update; npm install -g npm"
+alias yayup="yay -Syu"
+alias update="pacmanup; npmup; yayup"
 
 # Network
 alias network.ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -49,13 +40,6 @@ alias network.flush="sudo nscd -K && sudo nscd && sudo systemd-resolve --flush-c
 # View HTTP traffic
 alias network.sniff="sudo ngrep -d 'wlo1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias network.httpdump="sudo tcpdump -i wlo1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
-# SSH
-alias connect.usg="ssh 192.168.1.1"
-alias connect.key="ssh 192.168.1.2"
-alias connect.nas="ssh 192.168.1.6"
-alias connect.pi="ssh pi@192.168.1.9"
-alias connect.pc="ssh 192.168.1.15"
 
 # Utils
 alias clean.ds_store="find . -type f -name '*.DS_Store' -ls -delete"

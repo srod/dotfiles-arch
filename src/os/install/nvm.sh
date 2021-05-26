@@ -74,10 +74,9 @@ main() {
         update_nvm
     fi
 
+    install_node 14
     install_node 12
-    install_node 10
     install_node 8
-    install_node 6
 
 }
 
