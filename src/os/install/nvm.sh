@@ -35,7 +35,7 @@ install_node() {
     execute \
         ". $LOCAL_SHELL_CONFIG_FILE \
             && nvm install $1 \
-            && npm install npm@6 -g" \
+            && npm install npm@8 -g" \
         "nvm (install Node $1)"
 }
 
@@ -74,10 +74,7 @@ main() {
         update_nvm
     fi
 
-    install_node 12
-    install_node 10
-    install_node 8
-    install_node 6
+    install_node 16
 
 }
 

@@ -31,10 +31,6 @@ main() {
 
     install_npm_package "eslint" "eslint"
 
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    install_npm_package "@vue/cli" "@vue/cli"
-
 }
 
 main

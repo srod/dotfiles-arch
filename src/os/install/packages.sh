@@ -3,7 +3,6 @@
 # System
 print_in_blue "\n   Packages - System\n\n"
 package_install "Bat" "bat"
-package_install "Ncdu" "ncdu"
 package_install "Ngrep" "ngrep"
 package_install "Nmap" "nmap"
 package_install "Prettyping" "prettyping"
