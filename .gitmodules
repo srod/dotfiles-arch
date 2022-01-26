@@ -22,11 +22,11 @@
 	path = src/shell/zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
     ignore = dirty
-[submodule "src/shell/zsh/themes/spaceship-prompt"]
-	path = src/shell/zsh/themes/spaceship-prompt
-	url = https://github.com/denysdovhan/spaceship-prompt.git
-    ignore = dirty
 [submodule "src/shell/zsh/plugins/zsh-completions"]
 	path = src/shell/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
+    ignore = dirty
+[submodule "src/shell/zsh/themes/powerlevel10k"]
+	path = src/shell/zsh/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
     ignore = dirty
